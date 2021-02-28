@@ -100,3 +100,43 @@
 
 // myMarks(60,50,88,77,81);
 
+// --------------------------------------------
+// ------------Spread Operator(ES6)------------
+// --------------------------------------------
+
+// Used with arrays to split the content of the array, same syntax as Rest Operator
+
+// let a = [1,2,3,4,5];
+// let b = [6,7,8,9];
+
+// let c = [...a, ...b]; // Make one array using 2 arrays
+// console.log(c);
+
+// -----------------------------------
+
+// let fullName = ["Kasun", "Darshana", "Perera"];
+
+// console.log(fullName);
+// console.log(...fullName); // Split array content
+
+// -----------------------------------
+
+// let subject = "Science";
+
+// console.log(subject);
+// console.log(...subject); // Seperate a string
+
+// -----------------------------------
+
+// let subject = {
+//     maths : 80,
+//     science: 66    
+// }
+
+// let personal = {
+//     name : 'Dasun',
+//     age : 24,
+//     ...subject
+// }
+
+// console.log(personal);
