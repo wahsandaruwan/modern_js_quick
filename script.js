@@ -79,3 +79,24 @@
 // }
 
 // console.log(myName('Nimal Silva'));
+
+// ------------------------------------------
+// ------------Rest Operator(ES6)------------
+// ------------------------------------------
+
+// Type of an array, used to handling function parameters
+
+// function mySalaries(sal){
+//     console.log(arguments);
+// }
+
+// mySalaries(1000,2000,3000,4000);
+
+// -----------------------------------
+
+// function myMarks(...marks){
+//     console.log(marks);
+// }
+
+// myMarks(60,50,88,77,81);
+
