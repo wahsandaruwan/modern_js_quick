@@ -199,3 +199,23 @@
 // for(let k of names.entries()){ // Get each element as an entry with the index
 //     console.log(k);
 // }
+
+// ------------------------------------
+// ------------Symbols(ES6)------------
+// ------------------------------------
+
+// In the past JS had 5 primitive types (Number, String, Boolean, Null, Undefined). In ES6 new primitive type has introduced called symbols. Unique and immutable. They are tokens that may be used as unique ids.
+
+const sym1 = Symbol(); // With Factory function
+
+let fname = Symbol("fname"); // With a string inside brackets, String helps to identify the symbol
+let lname = Symbol("lname");
+
+console.log(fname === lname);
+
+console.log(fname);
+console.log(lname);
+
+console.log(typeof fname);
+
+console.log(fname.toString());
