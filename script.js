@@ -172,5 +172,30 @@
 // bDay('Nirmal', new Date('1996-03-05')); // Pass an expression as a parameter
 // bDay('Prasad');
 
+// ----------------------------------------
+// ------------For Of Loop(ES6)------------
+// ----------------------------------------
 
+// Iterate arrays, strings, maps, nodelists and etc.
 
+// const cities = ["Moratuwa", "Nugegoda", "Welisara", "Biyagama"];
+
+// for(let x = 0; x < cities.length; x++){
+//     console.log(cities[x]);
+// }
+
+// -----------------------------------
+
+// const subjects = ["Maths", "Science", "Sinhala", "History", "Music"];
+
+// for(let y of subjects){
+//     console.log(y);
+// }
+
+// -----------------------------------
+
+// const names = ["Lahiru", "Kasun", "Janith", "Sanduni", "Masha"];
+
+// for(let k of names.entries()){ // Get each element as an entry with the index
+//     console.log(k);
+// }
