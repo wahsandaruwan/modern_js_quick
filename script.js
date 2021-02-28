@@ -140,3 +140,37 @@
 // }
 
 // console.log(personal);
+
+// -----------------------------------------------
+// ------------Default Parameters(ES6)------------
+// -----------------------------------------------
+
+// function getYear(currentYear, years = 40){
+//     return currentYear + years;
+// }
+
+// console.log(getYear(2021, 45));
+
+// console.log(getYear(2021));
+
+// -----------------------------------
+
+// function multiply(num1, num2 = 5, num3 = 6){
+//     return (num1 * num2) * num3;
+// }
+
+// console.log(multiply(10));
+
+// console.log(multiply(10,10));
+
+// -----------------------------------
+
+// const bDay = function(name, birthYear = new Date()){
+//     console.log(`${name} has born in ${birthYear.getFullYear()}`);
+// }
+
+// bDay('Nirmal', new Date('1996-03-05')); // Pass an expression as a parameter
+// bDay('Prasad');
+
+
+
