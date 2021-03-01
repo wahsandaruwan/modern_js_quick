@@ -308,3 +308,49 @@
 
 // salCal(10000, 10);
 // salCal(10000);
+
+// --------------------------------------------------
+// ------------Destructuring Objects(ES6)------------
+// --------------------------------------------------
+
+// Extract properties from objects and bind them to variables.
+
+// const user = {
+//     first : "Lahiru",
+//     last : "Perera",
+//     age : 25
+// }
+
+// const fname = user.first;
+// const age = user.age;
+
+// console.log(`My name is ${fname} and age is ${age}`);
+
+// -----------------------------------
+
+// const std = {
+//     name : "Chamara Silva",
+//     degree : "BSc Comp Sc.",
+//     age : 25,
+//     subjects : ["Java", "OS", "Comp Design", "Networking"],
+//     gpa : {
+//         first : 3.8,
+//         second : 3.6,
+//         third : 3.4
+//     }
+// }
+
+// const {name} = std;
+// console.log(`My name is ${name}`);
+
+// const {degree:d, age:a} = std;
+// console.log(`Degree is ${d} and age is ${a}`);
+
+// const {subjects} = std;
+// for(let i of subjects){
+//     console.log(i);
+// }
+
+// const {gpa:{first}} = std;
+// console.log(`GPA of the first year is ${first}`);
+
