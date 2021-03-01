@@ -375,14 +375,13 @@
 // let [sub1, sub2] = displaySubjects();
 // console.log(sub2);
 
-// -------------------------------------------------
+// ---------------------------------
 // ------------Maps(ES6)------------
-// -------------------------------------------------
+// ---------------------------------
 
 // Collection of elements where each element is stored as a Key, value pair. Map object can hold both objects and primitive values as either key or value.
 
 // let map = new Map();
-
 // console.log(map);
 
 // map.set("fname", "Chamal");
@@ -400,3 +399,34 @@
 //     // console.log(x);
 //     console.log(`${x[0]} : ${x[1]}`);
 // }
+
+// ---------------------------------
+// ------------Sets(ES6)------------
+// ---------------------------------
+
+// Similar to arrays but it doesn't accept duplicate values.
+
+let set = new Set();
+console.log(set);
+
+set.add("Pasan");
+set.add("Dasun");
+set.add("Kasun");
+set.add(5);
+set.add(true);
+set.add("Kasun");
+set.add(5);
+console.log(set);
+
+for(let y of set){
+    console.log(y);
+}
+
+// -----------------------------------
+
+let nset = new Set(["Maths","Science",123]);
+console.log(nset);
+
+console.log(nset.size);
+
+console.log(nset.has("Maths"));
