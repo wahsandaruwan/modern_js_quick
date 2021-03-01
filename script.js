@@ -375,3 +375,28 @@
 // let [sub1, sub2] = displaySubjects();
 // console.log(sub2);
 
+// -------------------------------------------------
+// ------------Maps(ES6)------------
+// -------------------------------------------------
+
+// Collection of elements where each element is stored as a Key, value pair. Map object can hold both objects and primitive values as either key or value.
+
+// let map = new Map();
+
+// console.log(map);
+
+// map.set("fname", "Chamal");
+// map.set("lname", "Dias");
+// map.set("phone", 35346346);
+
+// console.log(`First name is ${map.get('fname')}`);
+// console.log(`Phone number is ${map.get('phone')}`);
+
+// console.log(map.has('email'));
+
+// console.log(map.size);
+
+// for(let x of map){
+//     // console.log(x);
+//     console.log(`${x[0]} : ${x[1]}`);
+// }
