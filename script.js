@@ -651,3 +651,59 @@ console.log(mn.powerGen());
 
 console.log(3**2);
 console.log(5**5);
+
+// -------------------------------------
+// ------------Promises(ES6)------------
+// -------------------------------------
+
+// Promise is an Object. Use to deal with asynchronous operations. When we define a promise in JavaScript, it will be resolved when the time comes, or it will get rejected.
+
+// For example, when we request data from the server by using a Promise, it will be in pending mode until we receive our data.
+
+let pr = new Promise((resolve, reject) => {
+    let ans = 2 + 5;
+    setTimeout(() => {
+        if(ans == 7){
+            resolve('completed');
+        }
+        else{
+            reject('not completed');
+        }
+    },3000);
+});
+
+pr.then((msg) => {
+    console.log(`Promise has ${msg}`);
+}).catch((msg) => {
+    console.log(`Promise has not ${msg}`);
+});
+
+// -----------------------------------
+
+function getUserCountry(url){
+    return new Promise((resolve, reject) => {
+        const xmlreq = new XMLHttpRequest();
+        xmlreq.open('GET', url);
+
+        xmlreq.onload = () => {
+            if(xmlreq.status == 200){
+                resolve(xmlreq.response);
+            }
+            else{
+                reject(Error(xmlreq.response));
+            }
+        }
+
+        xmlreq.onerror = () => {
+            reject(Error("Network Error"));
+        }
+
+        xmlreq.send();
+    });
+}
+
+getUserCountry('https://api.nationalize.io/?name=#$%##').then((response) => {
+    console.log('Success', response);
+}).catch((error) => {
+    console.error('Failed', error);
+});
