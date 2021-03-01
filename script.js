@@ -512,3 +512,25 @@
 // console.log(cou);
 // cou.getMarks();
 
+// ---------------------------------------------
+// ------------Static Keywords(ES6)------------
+// ---------------------------------------------
+
+// Static methods/prperties are called directly on the class, without creating an instance/objects
+
+class Car{
+    constructor(brand){
+        this.brand = brand;
+    }
+
+    // Static property
+    static company = "Ford";
+
+    // Static function
+    static getPrice(tax){
+        console.log(`Price is : ${tax+20000}`);
+    }
+}
+
+console.log(Car.company);
+Car.getPrice(2000);
