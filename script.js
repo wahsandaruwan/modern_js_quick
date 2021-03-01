@@ -644,3 +644,10 @@ class Mini extends Audi{
 let mn = new Mini("A7", 1500);
 console.log(mn.start());
 console.log(mn.powerGen());
+
+// ----------------------------------------------------
+// ------------Exponentiation Operator(ES7)------------
+// ----------------------------------------------------
+
+console.log(3**2);
+console.log(5**5);
