@@ -354,3 +354,24 @@
 // const {gpa:{first}} = std;
 // console.log(`GPA of the first year is ${first}`);
 
+// -------------------------------------------------
+// ------------Destructuring Arrays(ES6)------------
+// -------------------------------------------------
+
+// Extracting multiple properties from an array by taking the structure.
+
+// const names = ["Sanduni", "Chamara", "Sajith"];
+
+// const [n1, n2, n3] = names;
+
+// console.log(n1);
+// console.log(n2);
+// console.log(n3);
+
+// -----------------------------------
+
+// const displaySubjects = () => ["Maths", "Science", "Sinhala"];
+
+// let [sub1, sub2] = displaySubjects();
+// console.log(sub2);
+
