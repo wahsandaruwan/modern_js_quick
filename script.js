@@ -4,26 +4,32 @@
 
 // Var is function scope | let & const are blocked scope
 
+// // -----Var-----
 // var num = 20;
 
 // function multiply(){
 //     var num1  = 30;
 //     console.log(num);
 //     console.log(num1);
+
+//     num = 40;
+//     console.log(num);
+
+//     var num1 = 0;
+//     console.log(num1);
 // }
 
 // multiply();
 
-// -----------------------------------
+// if(num > 10){
+//     var num2 = 200;
+// }
 
-// var a = 40;
-// console.log(a);
-
-// var a = 50;
-// console.log(a);
+// console.log(num2);
 
 // -----------------------------------
 
+// // -----Let-----
 // let num = 10;
 
 // if(num < 11){
@@ -40,6 +46,7 @@
 
 // -----------------------------------
 
+// // -----Const-----
 // const num = 10;
 
 // if(num < 11){
@@ -58,6 +65,7 @@
 // ------------Template Literals(ES6)------------
 // ----------------------------------------------
 
+// // -----Concatenation-----
 // let name = "Kasun";
 // let age = 25;
 
@@ -66,6 +74,7 @@
 
 // -----------------------------------
 
+// // -----Template Literals-----
 // let fName = "Chamara";
 // let lName = "Fernando";
 
@@ -86,6 +95,7 @@
 
 // Type of an array, used to handling function parameters
 
+// // -----Arguments-----
 // function mySalaries(sal){
 //     console.log(arguments);
 // }
@@ -94,6 +104,7 @@
 
 // -----------------------------------
 
+// // -----Rest-----
 // function myMarks(...marks){
 //     console.log(marks);
 // }
@@ -106,6 +117,7 @@
 
 // Used with arrays to split the content of the array, same syntax as Rest Operator
 
+// // -----Spread-----
 // let a = [1,2,3,4,5];
 // let b = [6,7,8,9];
 
@@ -145,6 +157,7 @@
 // ------------Default Parameters(ES6)------------
 // -----------------------------------------------
 
+// // -----Default Param-----
 // function getYear(currentYear, years = 40){
 //     return currentYear + years;
 // }
@@ -178,6 +191,7 @@
 
 // Iterate arrays, strings, maps, nodelists and etc.
 
+// // -----For-----
 // const cities = ["Moratuwa", "Nugegoda", "Welisara", "Biyagama"];
 
 // for(let x = 0; x < cities.length; x++){
@@ -186,6 +200,7 @@
 
 // -----------------------------------
 
+// // -----For Of-----
 // const subjects = ["Maths", "Science", "Sinhala", "History", "Music"];
 
 // for(let y of subjects){
@@ -206,6 +221,7 @@
 
 // In the past JS had 5 primitive types (Number, String, Boolean, Null, Undefined). In ES6 new primitive type has introduced called symbols. Unique and immutable. They are tokens that may be used as unique ids.
 
+// // -----Symbol-----
 // const sym1 = Symbol(); // With Factory function
 
 // let fname = Symbol("fname"); // With a string inside brackets, String helps to identify the symbol
@@ -226,7 +242,7 @@
 
 // Expression that provides a shorthand for declaring anonymous functions. An anonymous function is a function without a name. An anonymous function is often not accessible after its initial creation.
 
-// // Function Declaration
+// // -----Function Declaration-----
 // function myAge(age){
 //     console.log(`My age is ${age}`);
 // }
@@ -235,7 +251,7 @@
 
 // -----------------------------------
 
-// // Function Expression
+// // -----Function Expression-----
 // const myName = function(name){
 //     console.log(`My name is ${name}`);
 // }
@@ -244,6 +260,7 @@
 
 // -----------------------------------
 
+// // -----Arrow Functions-----
 // const subject = () => console.log("Maths");
 
 // subject();
@@ -315,6 +332,7 @@
 
 // Extract properties from objects and bind them to variables.
 
+// // -----Get Object Values-----
 // const user = {
 //     first : "Lahiru",
 //     last : "Perera",
@@ -328,6 +346,7 @@
 
 // -----------------------------------
 
+// // -----Object Destructuring-----
 // const std = {
 //     name : "Chamara Silva",
 //     degree : "BSc Comp Sc.",
@@ -360,6 +379,7 @@
 
 // Extracting multiple properties from an array by taking the structure.
 
+// // -----Array Destructuring-----
 // const names = ["Sanduni", "Chamara", "Sajith"];
 
 // const [n1, n2, n3] = names;
@@ -381,6 +401,7 @@
 
 // Collection of elements where each element is stored as a Key, value pair. Map object can hold both objects and primitive values as either key or value.
 
+// // -----Maps-----
 // let map = new Map();
 // console.log(map);
 
@@ -406,27 +427,77 @@
 
 // Similar to arrays but it doesn't accept duplicate values.
 
-let set = new Set();
-console.log(set);
+// // -----Sets-----
+// let set = new Set();
+// console.log(set);
 
-set.add("Pasan");
-set.add("Dasun");
-set.add("Kasun");
-set.add(5);
-set.add(true);
-set.add("Kasun");
-set.add(5);
-console.log(set);
+// set.add("Pasan");
+// set.add("Dasun");
+// set.add("Kasun");
+// set.add(5);
+// set.add(true);
+// set.add("Kasun");
+// set.add(5);
+// console.log(set);
 
-for(let y of set){
-    console.log(y);
-}
+// for(let y of set){
+//     console.log(y);
+// }
 
 // -----------------------------------
 
-let nset = new Set(["Maths","Science",123]);
-console.log(nset);
+// let nset = new Set(["Maths","Science",123]);
+// console.log(nset);
 
-console.log(nset.size);
+// console.log(nset.size);
 
-console.log(nset.has("Maths"));
+// console.log(nset.has("Maths"));
+
+// ----------------------------------------------
+// ------------Classes & Methods(ES6)------------
+// ----------------------------------------------
+
+// JavaScript Classes are templates for JavaScript Objects. Objects are real life entities that has attributes and behaviours.
+
+// Sometimes we need a "blueprint" for creating many objects of the same "type".
+// this = The object that is executing the current function
+
+// // -----Object Constructors & this Keyword-----
+// console.log(this);
+
+// function Display(subject){
+//     this.subject = subject;
+//     this.getMarks = () => {
+//         console.log(`${this.subject} : 80`);
+//         console.log(this);
+//     }
+// }
+
+// let dis = new Display("Maths");
+// console.log(dis);
+// dis.getMarks();
+
+// -----------------------------------
+
+// function sample(){
+//     console.log(this);
+// }
+
+// sample();
+
+// -----------------------------------
+
+// // -----Classes with Methods-----
+// class Display{
+//     constructor(subject){
+//         this.subject = subject;
+//     }
+
+//     getMarks(){
+//         console.log(`${this.subject} : 75`);
+//     }
+// }
+
+// let dis = new Display("Science");
+// console.log(dis);
+// dis.getMarks();
