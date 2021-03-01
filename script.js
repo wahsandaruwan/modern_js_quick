@@ -512,25 +512,99 @@
 // console.log(cou);
 // cou.getMarks();
 
-// ---------------------------------------------
+// --------------------------------------------
 // ------------Static Keywords(ES6)------------
-// ---------------------------------------------
+// --------------------------------------------
 
 // Static methods/prperties are called directly on the class, without creating an instance/objects
 
-class Car{
-    constructor(brand){
-        this.brand = brand;
-    }
+// class Car{
+//     constructor(brand){
+//         this.brand = brand;
+//     }
 
-    // Static property
-    static company = "Ford";
+//     // Static property
+//     static company = "Ford";
 
-    // Static function
-    static getPrice(tax){
-        console.log(`Price is : ${tax+20000}`);
-    }
-}
+//     // Static Method
+//     static getPrice(tax){
+//         console.log(`Price is : ${tax+20000}`);
+//     }
+// }
 
-console.log(Car.company);
-Car.getPrice(2000);
+// console.log(Car.company);
+// Car.getPrice(2000);
+
+// ----------------------------------------------
+// ------------Getters & Setters(ES6)------------
+// ----------------------------------------------
+
+// Getters - Access properties | Setters - Mutate them. JavaScript can secure better data quality when using getters and setters.
+
+// -----Normal function inside an Object-----
+
+// const Person = {
+//     fname : "Kasun",
+//     lname : "Tharaka",
+//     fullName(){
+//         return `${this.fname} ${this.lname}`;
+//     }
+// };
+
+// console.log(Person.fullName());
+
+// -----------------------------------
+
+// // -----Getters & Setters inside an Object-----
+
+// const Person = {
+//     fname : "Kasun",
+//     lname : "Tharaka",
+//     // Getter
+//     get fullName(){
+//         return `${this.fname} ${this.lname}`;
+//     },
+//     // Setter
+//     set fullName(name){
+//         const parts = name.split(' ');
+//         this.fname = parts[0];
+//         this.lname = parts[1];
+//     }
+// };
+
+// console.log(Person.fullName);
+
+// Person.fullName = "Chamal Silva";
+
+// console.log(Person.fullName);
+
+// -----------------------------------
+
+// // -----Getters & Setters inside a Class-----
+
+// class Square{
+//     constructor(_width, _height){
+//         this.width = _width;
+//         this.height = _height;
+//     }
+
+//     // Getter
+//     get area(){
+//         return this.width * this.height;
+//     }
+
+//     // Setter
+//     set area(values){
+//         const val = values.split(',');
+//         this.width = Number(val[0]);
+//         this.height = Number(val[1]);
+//     }
+// }
+
+// let sq = new Square(10, 5);
+
+// console.log(sq.area);
+
+// sq.area = "2,10";
+
+// console.log(sq.area);
