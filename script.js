@@ -206,16 +206,105 @@
 
 // In the past JS had 5 primitive types (Number, String, Boolean, Null, Undefined). In ES6 new primitive type has introduced called symbols. Unique and immutable. They are tokens that may be used as unique ids.
 
-const sym1 = Symbol(); // With Factory function
+// const sym1 = Symbol(); // With Factory function
 
-let fname = Symbol("fname"); // With a string inside brackets, String helps to identify the symbol
-let lname = Symbol("lname");
+// let fname = Symbol("fname"); // With a string inside brackets, String helps to identify the symbol
+// let lname = Symbol("lname");
 
-console.log(fname === lname);
+// console.log(fname === lname);
 
-console.log(fname);
-console.log(lname);
+// console.log(fname);
+// console.log(lname);
 
-console.log(typeof fname);
+// console.log(typeof fname);
 
-console.log(fname.toString());
+// console.log(fname.toString());
+
+// --------------------------------------------
+// ------------Arrow Functions(ES6)------------
+// --------------------------------------------
+
+// Expression that provides a shorthand for declaring anonymous functions. An anonymous function is a function without a name. An anonymous function is often not accessible after its initial creation.
+
+// // Function Declaration
+// function myAge(age){
+//     console.log(`My age is ${age}`);
+// }
+
+// myAge(23);
+
+// -----------------------------------
+
+// // Function Expression
+// const myName = function(name){
+//     console.log(`My name is ${name}`);
+// }
+
+// myName("Dasun");
+
+// -----------------------------------
+
+// const subject = () => console.log("Maths");
+
+// subject();
+
+// -----------------------------------
+
+// const city = (city) => {
+//     let out = `My city is ${city}`;
+//     return out;
+// }
+
+// console.log(city("Moratuwa"));
+
+// -----------------------------------
+
+// setTimeout(function(){
+//     console.log("Hello....");
+// }, 5000);
+
+// -----------------------------------
+
+// setTimeout(()=>console.log("Hello...."), 5000);
+
+// -----------------------------------
+
+// const fact = function(n){
+//     let f = 1;
+//     for(let i = n; i > 1; i--){
+//         f *= i;
+//     }
+
+//     return f;
+// }
+
+// console.log(fact(3));
+
+// -----------------------------------
+
+// const factA = (n) => {
+//     let f = 1;
+//     for(let i = n; i > 1; i--){
+//         f *= i;
+//     }
+
+//     return f;
+// }
+
+// console.log(factA(3));
+
+// -----------------------------------
+
+// const myMarks = (...marks) => console.log(marks);
+
+// myMarks(33,44,22,66,78);
+
+// -----------------------------------
+
+// const salCal = (salary, improvement = 5) => {
+//     let nSal = salary * ((improvement+100)/100);
+//     console.log(`New Salary is Rs. ${nSal}`);
+// }
+
+// salCal(10000, 10);
+// salCal(10000);
