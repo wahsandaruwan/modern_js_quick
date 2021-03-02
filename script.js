@@ -1007,3 +1007,27 @@ console.log(Object.values(data));
 for(let val of Object.values(data)){
     console.log(val);
 }
+
+// --------------------------------------------
+// ------------Trailing Commas(ES8)------------
+// --------------------------------------------
+
+//  Can be useful when adding new elements, parameters, or properties to JavaScript code.
+
+const arr = [1,2,3,4,];
+console.log(arr);
+
+// -----------------------------------
+
+function add(x,y){
+    return x+y;
+}
+console.log(add(3,5,));
+
+// -----------------------------------
+
+const data = {
+    name : "Chamara",
+    age : 25,
+}
+console.log(data);
