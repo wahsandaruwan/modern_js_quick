@@ -971,3 +971,21 @@ console.log(name.padStart(10, 'e'));
 
 let subject = "Science";
 console.log(subject.padEnd(10, '.'));
+
+// -------------------------------------------
+// ------------Object Entries(ES8)------------
+// -------------------------------------------
+
+// Returns an array of a given object's own key value pairs
+
+const data = {
+    name : "Dasun Perera",
+    email : "dasun@gmail.com",
+    phone : 123446
+}
+
+console.log(Object.entries(data));
+
+for(let [key, val] of Object.entries(data)){
+    console.log(`${key} : ${val}`);
+}
