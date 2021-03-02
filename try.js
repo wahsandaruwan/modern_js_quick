@@ -1,2 +1,2 @@
-let user = "Kasun Perera";
-console.log(user.includes(" "));
+let subject = "Science";
+console.log(subject.padEnd(10, '.'));

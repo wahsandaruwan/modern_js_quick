@@ -954,3 +954,20 @@ console.log(names.includes("Chamal"));
 
 let user = "Kasun Perera";
 console.log(user.includes(" "));
+
+// --------------------------------------------------------
+// ------------PadStart & PadEnd Functions(ES8)------------
+// --------------------------------------------------------
+
+// Pads the current string with another string until the resulting string reaches the given length.
+
+// -----PadStart-----
+let name = "Dasun";
+console.log(name.padStart(10, 'e'));
+
+// -----------------------------------
+
+// -----PadEnd-----
+
+let subject = "Science";
+console.log(subject.padEnd(10, '.'));
