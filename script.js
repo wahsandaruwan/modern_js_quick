@@ -825,3 +825,115 @@ Promise.all([pr1, pr2, pr3]).then((values) => {
     console.log(values);
 });
 
+// ----------------------------------------
+// ------------Async/Await(ES8)------------
+// ----------------------------------------
+
+// Async and Await make promises easier to write. Async makes a function return a Promise. Await makes a function wait for a Promise.
+
+// -----Normal Promise-----
+
+function dialEmergency(number){
+    return new Promise((resolve, reject) => {
+        console.log(`Dialing ${number}`);
+        if(number === 119){
+            resolve("What is your emergency");
+        }
+        else{
+            reject("This is not the emergency number");
+        }
+    });
+}
+
+function processCall(response){
+    return new Promise((resolve, reject) => {
+        console.log("Calling emergency service");
+        resolve(`Agent : ${response}`);
+    });
+}
+
+dialEmergency(119).then((response) => {
+    console.log("Response Received");
+    return processCall(response);
+}).then((processedResponse) => {
+    console.log(processedResponse);
+}).catch((error) => {
+    console.error(error);
+});
+
+// -----------------------------------
+
+// -----Async/Await-----
+
+function dialEmergency(number){
+    return new Promise((resolve, reject) => {
+        console.log(`Dialing ${number}`);
+        if(number === 119){
+            resolve("What is your emergency");
+        }
+        else{
+            reject("This is not the emergency number");
+        }
+    });
+}
+
+function processCall(response){
+    return new Promise((resolve, reject) => {
+        console.log("Calling emergency service");
+        resolve(`Agent : ${response}`);
+    });
+}
+
+async function handleOperation(){
+    try{
+        const response = await dialEmergency(119); // Wait until it finishes
+        console.log("Response Received");
+        const processedResponse = await processCall(response);
+        console.log(processedResponse);
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+
+handleOperation();
+
+// -----Fetch API-----
+// Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses
+
+console.log(fetch('https://jsonplaceholder.typicode.com/posts'));
+
+fetch('https://jsonplaceholder.typicode.com/posts').then((res) => {
+    if(res.ok){
+        return res.json();
+    }
+    else{
+        return Error('Something went wrong!');
+    }
+}).then((data) => {
+    console.log(data);
+});
+
+// -----------------------------------
+
+// Create a new post
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        title: 'samplep post 1',
+        body: 'This is a sample post',
+        userId: 11
+    })
+}).then((res) => {
+    if(res.ok){
+        return res.json();
+    }
+    else{
+        return Error('Something went wrong!');
+    }
+}).then((data) => {
+    console.log(data);
+});
