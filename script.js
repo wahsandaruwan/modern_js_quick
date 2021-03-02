@@ -938,23 +938,6 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
     console.log(data);
 });
 
-// ----------------------------------------------
-// ------------Includes Function(ES7)------------
-// ----------------------------------------------
-
-let numbers = [1,2,3,4,5,6,7];
-console.log(numbers.includes(0));
-
-// -----------------------------------
-
-let names = ["Chamara", "Kasun", "Sanduni"];
-console.log(names.includes("Chamal"));
-
-// -----------------------------------
-
-let user = "Kasun Perera";
-console.log(user.includes(" "));
-
 // --------------------------------------------------------
 // ------------PadStart & PadEnd Functions(ES8)------------
 // --------------------------------------------------------
@@ -1031,3 +1014,158 @@ const data = {
     age : 25,
 }
 console.log(data);
+
+// -----------------------------------------------
+// ------------Array Methods(ES5+)------------
+// -----------------------------------------------
+
+// -----Filter-----
+// Creates a new array with all elements that pass the test implemented by the provided function.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const filterStd = students.filter((std) => {
+    return std.age < 30;
+});
+
+console.log(filterStd);
+
+// -----Map-----
+// Creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const filterNames= students.map((std) => {
+    return std.name;
+});
+
+console.log(filterNames);
+
+// -----Find-----
+// Returns the value of the first element in the provided array that satisfies the provided testing function.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const foundItem = students.find((std) => {
+    return std.name == "Saman";
+});
+
+console.log(foundItem);
+
+// -----ForEach-----
+// Executes a provided function once for each array element.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+students.find((std) => {
+    console.log(std.name);
+});
+
+// -----Some-----
+// Tests whether at least one element in the array passes the test implemented by the provided function
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const aboveAge = students.some((std) => {
+    return std.age > 29;
+});
+
+console.log(aboveAge);
+
+// -----Every-----
+// Tests whether all elements in the array pass the test implemented by the provided function
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const allAboveAge = students.every((std) => {
+    return std.age > 20;
+});
+
+console.log(allAboveAge);
+
+// -----Reduce-----
+//  Executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const totalAge = students.reduce((total, std) => {
+    return std.age + total;
+}, 0);
+
+console.log(totalAge);
+
+// -----Sort-----
+//  Executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45},
+];
+
+const sortedStd = students.sort((std1, std2) => {
+    return std1.age > std2.age ? 1 : -1;
+}, 0);
+
+console.log(sortedStd);
+
+// Array elements are converted to strings, then sorted according to each character's Unicode code point value. 
+const ages = [33,45,21,66,7,5,21,4,88];
+const sortedAges = ages.sort();
+console.log(sortedAges);
+
+// -----Includes-----
+// Determines whether an array includes a certain value among its entries
+
+let numbers = [1,2,3,4,5,6,7];
+console.log(numbers.includes(0));
+
+let names = ["Chamara", "Kasun", "Sanduni"];
+console.log(names.includes("Chamal"));
+
+let user = "Kasun Perera";
+console.log(user.includes(" "));
