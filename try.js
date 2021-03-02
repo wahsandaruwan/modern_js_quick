@@ -4,8 +4,8 @@ const data = {
     phone : 123446
 }
 
-console.log(Object.entries(data));
+console.log(Object.values(data));
 
-for(let [key, val] of Object.entries(data)){
-    console.log(`${key} : ${val}`);
+for(let val of Object.values(data)){
+    console.log(val);
 }

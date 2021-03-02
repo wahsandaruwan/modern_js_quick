@@ -989,3 +989,21 @@ console.log(Object.entries(data));
 for(let [key, val] of Object.entries(data)){
     console.log(`${key} : ${val}`);
 }
+
+// ------------------------------------------
+// ------------Object Values(ES8)------------
+// ------------------------------------------
+
+// Returns an array of a given object's own property values
+
+const data = {
+    name : "Dasun Perera",
+    email : "dasun@gmail.com",
+    phone : 123446
+}
+
+console.log(Object.values(data));
+
+for(let val of Object.values(data)){
+    console.log(val);
+}
