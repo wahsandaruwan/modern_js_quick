@@ -937,3 +937,20 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 }).then((data) => {
     console.log(data);
 });
+
+// ----------------------------------------------
+// ------------Includes Function(ES7)------------
+// ----------------------------------------------
+
+let numbers = [1,2,3,4,5,6,7];
+console.log(numbers.includes(0));
+
+// -----------------------------------
+
+let names = ["Chamara", "Kasun", "Sanduni"];
+console.log(names.includes("Chamal"));
+
+// -----------------------------------
+
+let user = "Kasun Perera";
+console.log(user.includes(" "));
