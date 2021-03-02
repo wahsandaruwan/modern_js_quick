@@ -660,6 +660,47 @@ console.log(5**5);
 
 // For example, when we request data from the server by using a Promise, it will be in pending mode until we receive our data.
 
+// -----Callbacks-----
+
+const products = [
+    {
+        name: "Product 1",
+        desc: "This is my sample product 1",
+        price: 200
+    },
+    {
+        name: "Product 2",
+        desc: "This is my sample product 2",
+        price: 300
+    }
+];
+
+function getProducts(){
+    setTimeout(() => {
+        let output = '';
+        products.forEach((product) => {
+            output += `<div>
+                    <h2>${product.name}</h2>
+                    <p>${product.desc}</p>
+                    <h4>${product.price}</h4></div>`;
+        });
+        document.body.innerHTML = output;
+    }, 1000);
+}
+
+function addProducts(product, callback){
+    setTimeout(() => {
+        products.push(product);
+        callback();
+    }, 2000);
+}
+
+addProducts({name: "Product 3", desc: "This is my sample product 3", price: 500}, getProducts);
+
+// -----------------------------------
+
+// -----Promises-----
+
 let pr = new Promise((resolve, reject) => {
     let ans = 2 + 5;
     setTimeout(() => {
@@ -676,6 +717,57 @@ pr.then((msg) => {
     console.log(`Promise has ${msg}`);
 }).catch((msg) => {
     console.log(`Promise has not ${msg}`);
+});
+
+// -----------------------------------
+
+const products = [
+    {
+        name: "Product 1",
+        desc: "This is my sample product 1",
+        price: 200
+    },
+    {
+        name: "Product 2",
+        desc: "This is my sample product 2",
+        price: 300
+    }
+];
+
+function getProducts(){
+    setTimeout(() => {
+        let output = '';
+        products.forEach((product) => {
+            output += `<div>
+                    <h2>${product.name}</h2>
+                    <p>${product.desc}</p>
+                    <h4>${product.price}</h4></div>`;
+        });
+        document.body.innerHTML = output;
+    }, 1000);
+}
+
+function addProducts(product){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let ln = products.length;
+            products.push(product);
+
+            if(products.length > ln){
+                resolve("Product added");
+            }
+            else{
+                reject("Product not added");
+            }           
+        }, 2000);
+    });
+}
+
+addProducts({name: "Product 3", desc: "This is my sample product 3", price: 500}).then((res) => {
+    getProducts();
+    console.log(res);
+}).catch((err) => {
+    console.error(err);
 });
 
 // -----------------------------------
@@ -702,8 +794,34 @@ function getUserCountry(url){
     });
 }
 
-getUserCountry('https://api.nationalize.io/?name=#$%##').then((response) => {
+getUserCountry('https://api.nationalize.io/?name=kasun').then((response) => {
     console.log('Success', response);
 }).catch((error) => {
     console.error('Failed', error);
 });
+
+// -----------------------------------
+
+const pr1 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 1 Success");
+    }, 1000);
+});
+
+const pr2 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 2 Success");
+    }, 1000);
+});
+
+const pr3 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("Promise 3 Success");
+    }, 3000);
+});
+
+// All
+Promise.all([pr1, pr2, pr3]).then((values) => {
+    console.log(values);
+});
+
