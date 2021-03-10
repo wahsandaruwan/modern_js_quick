@@ -21,6 +21,7 @@ function multiply(){
 }
 
 multiply();
+console.log(num);
 
 if(num > 10){
     var num2 = 200;
@@ -36,6 +37,7 @@ let num = 10;
 
 if(num < 11){
     let greet = "Hello";
+    console.log(greet);
     greet = "World!"; // Can't delcare but can replace the value
     console.log(greet);
 
@@ -94,13 +96,13 @@ function myName(name){
 
 console.log(myName('Nimal Silva'));
 
-// ------------------------------------------
-// ------------Rest Operator(ES6)------------
-// ------------------------------------------
+// -------------------------------------------
+// ------------Rest Parameter(ES6)------------
+// -------------------------------------------
 
-// Type of an array, used to handling function parameters
+// The rest parameter syntax allows a function to accept an indefinite number of arguments as an array.
 
-// -----Arguments-----
+// -----Arguments Object-----
 
 function mySalaries(sal){
     console.log(arguments);
@@ -122,13 +124,14 @@ myMarks(60,50,88,77,81);
 // ------------Spread Operator(ES6)------------
 // --------------------------------------------
 
-// Used with arrays, strings, objects to split the content, same syntax as Rest Operator
+// Allows us to spread elements. Used with arrays, strings, objects to split the content.
 
 let a = [1,2,3,4,5];
 let b = [6,7,8,9];
 
 let c = [...a, ...b]; // Make one array using 2 arrays
 console.log(c);
+console.log(...c);
 
 // -----------------------------------
 
@@ -148,7 +151,7 @@ console.log(...subject); // Seperate a string
 
 let subject = {
     maths : 80,
-    science: 66    
+    science: 66
 }
 
 let personal = {
@@ -157,7 +160,18 @@ let personal = {
     ...subject // Spread an object
 }
 
+console.log(subject);
 console.log(personal);
+
+// -----------------------------------
+
+const numbers = [1, 2, 3];
+
+function sum(a,b,c){
+  return a + b + c;
+}
+
+console.log(sum(...numbers));
 
 // -----------------------------------------------
 // ------------Default Parameters(ES6)------------
@@ -187,7 +201,7 @@ const bDay = function(name, birthYear = new Date()){
     console.log(`${name} has born in ${birthYear.getFullYear()}`);
 }
 
-bDay('Nirmal', new Date('1996-03-05')); // Pass an expression as a parameter
+bDay('Nirmal', new Date('1996-03-05'));
 bDay('Prasad');
 
 // ----------------------------------------
@@ -222,13 +236,23 @@ for(let k of names.entries()){ // Get each element as an entry with the index
     console.log(k);
 }
 
+// -----------------------------------
+
+const subject = "Science";
+
+for(let s of subject){
+    console.log(s);
+}
+
+
 // ------------------------------------
 // ------------Symbols(ES6)------------
 // ------------------------------------
 
-// In the past JS had 5 primitive types (Number, String, Boolean, Null, Undefined). In ES6 new primitive type has introduced called symbols. Unique and immutable. They are tokens that may be used as unique ids.
+// In the past JS had 5 primitive types (Number, String, Boolean, Null, Undefined). In ES6 new primitive type has introduced called symbols. They are tokens that may be used as unique ids.
 
 const sym1 = Symbol(); // With Factory function
+console.log(typeof sym1);
 
 let fname = Symbol("fname"); // With a string inside brackets, String helps to identify the symbol
 let lname = Symbol("lname");
@@ -237,8 +261,6 @@ console.log(fname === lname);
 
 console.log(fname);
 console.log(lname);
-
-console.log(typeof fname);
 
 console.log(fname.toString());
 
@@ -273,6 +295,12 @@ myName("Dasun");
 const subject = () => console.log("Maths");
 
 subject();
+
+// -----------------------------------
+
+const sum = (a,b) => a + b;
+
+console.log(sum(5,10));
 
 // -----------------------------------
 
@@ -471,8 +499,6 @@ console.log(nset.has("Maths"));
 // Sometimes we need a "blueprint" for creating many objects of the same "type".
 // this = The object that is executing the current function
 
-console.log(this);
-
 function Course(_subject){
     this.subject = _subject;
     this.getMarks = () => {
@@ -486,6 +512,8 @@ console.log(cou);
 cou.getMarks();
 
 // -----------------------------------
+
+console.log(this);
 
 function sample(){
     console.log(this);
@@ -505,6 +533,7 @@ class Course{
 
     getMarks(){
         console.log(`${this.subject} : 75`);
+        console.log(this);
     }
 }
 
@@ -516,7 +545,7 @@ cou.getMarks();
 // ------------Static Keywords(ES6)------------
 // --------------------------------------------
 
-// Static methods/prperties are called directly on the class, without creating an instance/objects
+// Static methods/properties are called directly on the class, without creating an instance/objects
 
 class Car{
     constructor(brand){
@@ -582,7 +611,7 @@ console.log(Person.fullName);
 
 // -----Getters & Setters inside a Class-----
 
-class Square{
+class Shape{
     constructor(width, height){
         this.width = width;
         this.height = height;
@@ -601,13 +630,13 @@ class Square{
     }
 }
 
-let sq = new Square(10, 5);
+let sh = new Shape(10, 5);
 
-console.log(sq.area);
+console.log(sh.area);
 
-sq.area = "2,10";
+sh.area = "2,10";
 
-console.log(sq.area);
+console.log(sh.area);
 
 // ----------------------------------------
 // ------------Inheritance(ES6)------------
@@ -615,7 +644,7 @@ console.log(sq.area);
 
 // Access Methods & Properties of the base class in the derived class.
 
-class Audi{
+class Car{
     constructor(model){
         this.model = model;
     }
@@ -625,14 +654,14 @@ class Audi{
     }
 }
 
-class Mini extends Audi{
+class Audi extends Car{
     constructor(model, engine){
         super(model); // Call base class's constructor
         this.engine = engine;
     }
 
     powerGen(){
-        return `${this.engine} cc Audi ${this.start()} is starting...`;
+        return `${this.engine} cc Audi ${this.start()}`;
     }
 
     // Method overiding
@@ -641,9 +670,9 @@ class Mini extends Audi{
     }
 }
 
-let mn = new Mini("A7", 1500);
-console.log(mn.start());
-console.log(mn.powerGen());
+let au = new Audi("A7", 1500);
+console.log(au.start());
+console.log(au.powerGen());
 
 // ----------------------------------------------------
 // ------------Exponentiation Operator(ES7)------------
@@ -651,6 +680,165 @@ console.log(mn.powerGen());
 
 console.log(3**2);
 console.log(5**5);
+
+// -------------------------------------------
+// ------------Array Methods(ES5+)------------
+// -------------------------------------------
+
+// -------------------------------------------
+// ------------Array Methods(ES5+)------------
+// -------------------------------------------
+
+// -----Filter-----
+// Creates a new array with all elements that pass the test implemented by the provided function.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const filterStd = students.filter((std) => std.age < 30);
+
+console.log(filterStd);
+
+// -----Map-----
+// Creates a new array populated with the results of calling a provided function on every element in the calling array.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const filterNames = students.map((std) => std.name);
+
+console.log(filterNames);
+
+// -----Find-----
+// Returns the value of the first element in the provided array that satisfies the provided testing function.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const foundItem = students.find((std) => std.name == "Saman");
+
+console.log(foundItem);
+
+// -----ForEach-----
+// Executes a provided function once for each array element.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+let sum = 0;
+
+students.forEach((std) => console.log(getSum(std.age)));
+
+function getSum(x){
+    sum = sum + x;
+    return sum;
+}
+
+// -----Some-----
+// Tests whether at least one element in the array passes the test implemented by the provided function
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const aboveAge = students.some((std) => std.age > 29);
+
+console.log(aboveAge);
+
+// -----Every-----
+// Tests whether all elements in the array pass the test implemented by the provided function
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const allAboveAge = students.every((std) => std.age > 20);
+
+console.log(allAboveAge);
+
+// -----Reduce-----
+//  Executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const totalAge = students.reduce((total, std) => {
+    return std.age + total;
+}, 0);
+
+console.log(totalAge);
+
+// -----Sort-----
+//  Sorts the elements of an array. The default sort order is ascending.
+
+const ages = [33,45,21,66,7,5,21,4,88];
+ages.sort(compFunc);
+console.log(ages);
+// Array elements are converted in to strings, then sorted according to each character's Unicode code point value.
+
+function compFunc(a, b){
+    return a - b;
+}
+
+// With Array of objects
+const students = [
+    {name : "Chamara", age : 22},
+    {name : "Kasun", age : 25},
+    {name : "Saman", age : 32},
+    {name : "Prasad", age : 28},
+    {name : "Sarath", age : 45}
+];
+
+const sortedStd = students.sort((std1, std2) => {
+    return std1.age - std2.age;
+});
+
+console.log(sortedStd);
+
+// -----Includes-----
+// Determines whether an array includes a certain value among its entries
+
+let numbers = [1,2,3,4,5,6,7];
+console.log(numbers.includes(0));
+
+let names = ["Chamara", "Kasun", "Sanduni"];
+console.log(names.includes("Chamal"));
+
+let user = "Kasun Perera";
+console.log(user.includes("P"));
 
 // -------------------------------------
 // ------------Promises(ES6)------------
@@ -675,6 +863,7 @@ const products = [
     }
 ];
 
+// Display products
 function getProducts(){
     setTimeout(() => {
         let output = '';
@@ -688,6 +877,7 @@ function getProducts(){
     }, 1000);
 }
 
+// Add products
 function addProducts(product, callback){
     setTimeout(() => {
         products.push(product);
@@ -716,7 +906,7 @@ let pr = new Promise((resolve, reject) => {
 pr.then((msg) => {
     console.log(`Promise has ${msg}`);
 }).catch((msg) => {
-    console.log(`Promise has not ${msg}`);
+    console.log(`Promise has ${msg}`);
 });
 
 // -----------------------------------
@@ -758,7 +948,7 @@ function addProducts(product){
             }
             else{
                 reject("Product not added");
-            }           
+            }
         }, 2000);
     });
 }
@@ -898,6 +1088,8 @@ async function handleOperation(){
 
 handleOperation();
 
+// -----------------------------------
+
 // -----Fetch API-----
 // Provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses
 
@@ -923,7 +1115,7 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-        title: 'samplep post 1',
+        title: 'Sample post 1',
         body: 'This is a sample post',
         userId: 11
     })
@@ -945,6 +1137,7 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 // Pads the current string with another string until the resulting string reaches the given length.
 
 // -----PadStart-----
+
 let name = "Dasun";
 console.log(name.padStart(10, 'e'));
 
@@ -991,21 +1184,14 @@ for(let val of Object.values(data)){
     console.log(val);
 }
 
-// --------------------------------------------
-// ------------Trailing Commas(ES8)------------
-// --------------------------------------------
+// ------------------------------------------------
+// ------------Trailing Commas(ES5,ES8)------------
+// ------------------------------------------------
 
 //  Can be useful when adding new elements, parameters, or properties to JavaScript code.
 
 const arr = [1,2,3,4,];
 console.log(arr);
-
-// -----------------------------------
-
-function add(x,y){
-    return x+y;
-}
-console.log(add(3,5,));
 
 // -----------------------------------
 
@@ -1015,157 +1201,9 @@ const data = {
 }
 console.log(data);
 
-// -----------------------------------------------
-// ------------Array Methods(ES5+)------------
-// -----------------------------------------------
+// -----------------------------------
 
-// -----Filter-----
-// Creates a new array with all elements that pass the test implemented by the provided function.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const filterStd = students.filter((std) => {
-    return std.age < 30;
-});
-
-console.log(filterStd);
-
-// -----Map-----
-// Creates a new array populated with the results of calling a provided function on every element in the calling array.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const filterNames= students.map((std) => {
-    return std.name;
-});
-
-console.log(filterNames);
-
-// -----Find-----
-// Returns the value of the first element in the provided array that satisfies the provided testing function.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const foundItem = students.find((std) => {
-    return std.name == "Saman";
-});
-
-console.log(foundItem);
-
-// -----ForEach-----
-// Executes a provided function once for each array element.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-students.find((std) => {
-    console.log(std.name);
-});
-
-// -----Some-----
-// Tests whether at least one element in the array passes the test implemented by the provided function
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const aboveAge = students.some((std) => {
-    return std.age > 29;
-});
-
-console.log(aboveAge);
-
-// -----Every-----
-// Tests whether all elements in the array pass the test implemented by the provided function
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const allAboveAge = students.every((std) => {
-    return std.age > 20;
-});
-
-console.log(allAboveAge);
-
-// -----Reduce-----
-//  Executes a reducer function (that you provide) on each element of the array, resulting in single output value.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const totalAge = students.reduce((total, std) => {
-    return std.age + total;
-}, 0);
-
-console.log(totalAge);
-
-// -----Sort-----
-//  Executes a reducer function (that you provide) on each element of the array, resulting in single output value.
-
-const students = [
-    {name : "Chamara", age : 22},
-    {name : "Kasun", age : 25},
-    {name : "Saman", age : 32},
-    {name : "Prasad", age : 28},
-    {name : "Sarath", age : 45},
-];
-
-const sortedStd = students.sort((std1, std2) => {
-    return std1.age > std2.age ? 1 : -1;
-}, 0);
-
-console.log(sortedStd);
-
-// Array elements are converted to strings, then sorted according to each character's Unicode code point value. 
-const ages = [33,45,21,66,7,5,21,4,88];
-const sortedAges = ages.sort();
-console.log(sortedAges);
-
-// -----Includes-----
-// Determines whether an array includes a certain value among its entries
-
-let numbers = [1,2,3,4,5,6,7];
-console.log(numbers.includes(0));
-
-let names = ["Chamara", "Kasun", "Sanduni"];
-console.log(names.includes("Chamal"));
-
-let user = "Kasun Perera";
-console.log(user.includes(" "));
+function add(x, y,){
+    return x + y;
+}
+console.log(add(3, 5,));
