@@ -685,10 +685,6 @@ console.log(5**5);
 // ------------Array Methods(ES5+)------------
 // -------------------------------------------
 
-// -------------------------------------------
-// ------------Array Methods(ES5+)------------
-// -------------------------------------------
-
 // -----Filter-----
 // Creates a new array with all elements that pass the test implemented by the provided function.
 
